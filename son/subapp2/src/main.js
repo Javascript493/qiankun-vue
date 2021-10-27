@@ -1,4 +1,4 @@
-import '../public-path'
+import './public-path'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -27,7 +27,17 @@ export async function bootstrap() {
   console.log('[vue] vue app bootstraped');
 }
 export async function mount(props) {
-  console.log('[vue] props from main framework', props);
+  props.onGlobalStateChange((state, prev) => {
+    // state: 变更后的状态; prev 变更前的状态
+    console.log(state, prev,111);
+  });
+  // 修改这个状态
+  setTimeout(() =>{
+    props.setGlobalState &&
+    props.setGlobalState({
+      id: `${props.name}_子应用`
+    });
+  },3000)
   render(props);
 }
 export async function unmount() {

@@ -8,7 +8,11 @@
         <el-button size="small" @click="handleLink('/subapp2')">2-vue项目应用</el-button>
       </div>
       <div class="list__item">
-        <el-button size="small" @click="handleLink('/reactapp')">2-react子项目应用</el-button>
+        <el-button size="small" @click="handleLink('/reactapp')">1-react子项目应用</el-button>
+      </div>
+
+      <div class="list__item">
+        <el-button size="small" @click="handleLink('/reactapp2')">2-react子项目应用</el-button>
       </div>
     </div>
     <div class="content">
@@ -16,6 +20,12 @@
       <div id="subapp"></div>
       <!-- vue子项目2 -->
       <div id="subapp2"></div>
+      <!-- react项目  -->
+      <div id="reactapp"></div>
+
+      <!-- react2项目  -->
+      <div id="reactapp2"></div>
+
     </div>
   </div>
 </template>
@@ -24,12 +34,12 @@
 export default {
   methods: {
     handleLink(path) {
-      if(path === '/reactapp') {
-        this.$message.error('未接入react项目')
-        return
-      } else {
-        this.$router.push(path)
-      }
+      this.$router.push(path)
+      // if(path === '/reactapp') {
+      //   this.$message.error('未接入react项目')
+      //   return
+      // } else {
+      // }
     }
   }
 };

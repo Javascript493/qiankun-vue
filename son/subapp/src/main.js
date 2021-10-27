@@ -1,4 +1,4 @@
-import '../public-path.js'
+import './public-path.js'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -26,6 +26,9 @@ export async function bootstrap() {
 }
 export async function mount(props) {
   console.log('[vue] props from main framework', props);
+  Vue.prototype._id = props.id 
+  console.log(Vue.prototype._id)
+  console.log(props.id)
   render(props);
 }
 export async function unmount() {
